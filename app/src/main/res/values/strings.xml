@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Contacts List</string>
+    <string name="action_settings">Settings</string>
+    <string name="name_text_view">Name</string>
+    <string name="name_edit_text">Your Name</string>
+    <string name="your_phone_edit_text">Your Phone</string>
+    <string name="phone_text_view">Phone</string>
+    <string name="email_text_view">Email</string>
+    <string name="email_edit_text">Your Email</string>
+    <string name="city_edit_text">Your City</string>
+    <string name="city_text_view">City</string>
+</resources>
