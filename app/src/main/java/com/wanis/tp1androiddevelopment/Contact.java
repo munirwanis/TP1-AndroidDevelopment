@@ -49,6 +49,10 @@ public class Contact {
         this.city = city;
     }
 
+    public Boolean isEmpty() {
+        return this.name == null && this.phone == null && this.email == null && this.city == null;
+    }
+
     @Override
     public String toString() {
         return this.name + "|" + this.phone + "|" + this.email + "|" + this.city + "\n";
