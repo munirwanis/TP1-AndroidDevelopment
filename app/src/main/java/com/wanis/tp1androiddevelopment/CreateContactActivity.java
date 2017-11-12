@@ -34,8 +34,22 @@ public class CreateContactActivity extends AppCompatActivity {
     }
 
     public void onCreateButtonClick(View view) {
-        // CREATE CONTACT
         this.progressBar.setVisibility(View.VISIBLE);
+
+        String name = this.nameEditText.getText().toString();
+        String phone = this.phoneEditText.getText().toString();
+        String email = this.emailEditText.getText().toString();
+        String city = this.cityEditText.getText().toString();
+
+        Contact contact = new Contact(name, phone, email, city);
+
+        try {
+            FileManager.Store(contact.toString());
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+        this.progressBar.setVisibility(View.INVISIBLE);
     }
 
     public void onCleanButtonClick(View view) {
