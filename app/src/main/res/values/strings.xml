@@ -9,4 +9,7 @@
     <string name="email_edit_text">Your Email</string>
     <string name="city_edit_text">Your City</string>
     <string name="city_text_view">City</string>
+    <string name="create_button">Create</string>
+    <string name="clean_button">Clean</string>
+    <string name="see_contacts_button">See Contacts</string>
 </resources>
