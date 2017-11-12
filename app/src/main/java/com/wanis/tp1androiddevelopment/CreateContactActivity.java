@@ -1,6 +1,7 @@
 package com.wanis.tp1androiddevelopment;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -10,6 +11,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import static com.wanis.tp1androiddevelopment.FileManager.readContacts;
 
 public class CreateContactActivity extends AppCompatActivity {
 
@@ -126,6 +131,17 @@ public class CreateContactActivity extends AppCompatActivity {
     }
 
     public void onShowContactsButtonClick(View view) {
-        // OPEN ANOTHER ACTIVITY
+        try {
+            ArrayList contacts = FileManager.readContacts();
+            if (contacts.isEmpty()) {
+                Toast.makeText(this, R.string.contact_is_empty, Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent(this, ListContactsActivity.class);
+                startActivity(intent);
+            }
+
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 }

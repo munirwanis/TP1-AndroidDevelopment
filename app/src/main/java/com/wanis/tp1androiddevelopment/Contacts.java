@@ -1,5 +1,16 @@
 package com.wanis.tp1androiddevelopment;
 
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -7,50 +18,36 @@ import java.util.ArrayList;
  * Created by munirwanis on 12/11/17.
  */
 
-public class Contacts {
+public class Contacts extends ArrayAdapter<Contact> {
+
+    private Context context;
     private ArrayList<Contact> contacts;
 
-    public Contacts(ArrayList<Contact> contacts) {
+    public Contacts(Context context, ArrayList<Contact> contacts) {
+        super(context, 0, contacts);
         this.contacts = contacts;
+        this.context = context;
     }
 
-    public Contacts() {
-        this.contacts = new ArrayList<Contact>();
-    }
-
-    public ArrayList<Contact> getContacts() throws IOException {
-        try {
-            String stringContacts = FileManager.Read();
-
-            String[] contactsLine = stringContacts.split("\n");
-
-            for (String contactLine :
-                    contactsLine) {
-                String[] contactSeparated = contactLine.split("|");
-                Contact contact = new Contact(contactSeparated[0], contactSeparated[1], contactSeparated[2], contactSeparated[3]);
-
-                this.contacts.add(contact);
-            }
-
-        } catch (Exception e) {
-            throw e;
-        }
-
-        return contacts;
-    }
-
-    public void setContacts(ArrayList<Contact> contacts) {
-        this.contacts = contacts;
-    }
-
+    @NonNull
     @Override
-    public String toString() {
-        String message = "";
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        Contact contact = this.contacts.get(position);
 
-        for (Contact contact :
-                contacts) {
-            message = message.concat(contact.toString());
-        }
-        return message;
+        convertView = LayoutInflater.from(this.context).inflate(R.layout.contact, null);
+
+        TextView name = (TextView) convertView.findViewById(R.id.nameContactTextView);
+        name.setText(contact.getName());
+
+        TextView phone = (TextView) convertView.findViewById(R.id.phoneContactTextView);
+        phone.setText(contact.getPhone());
+
+        TextView email = (TextView) convertView.findViewById(R.id.emailContactTextView);
+        email.setText(contact.getEmail());
+
+        TextView city = (TextView) convertView.findViewById(R.id.cityContactTextView);
+        city.setText(contact.getCity());
+
+        return convertView;
     }
 }

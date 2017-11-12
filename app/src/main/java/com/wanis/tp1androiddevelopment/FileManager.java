@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 /**
  * Created by munirwanis on 12/11/17.
@@ -54,5 +56,33 @@ class FileManager {
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    static ArrayList<Contact> readContacts() throws IOException {
+        ArrayList<Contact> contacts = new ArrayList<>();
+        try {
+            String stringContacts = FileManager.Read();
+
+            String[] contactsLine = stringContacts.split("\n");
+
+            for (String contactLine :
+                    contactsLine) {
+                StringTokenizer tokens = new StringTokenizer(contactLine, "|");
+
+                String name = tokens.nextToken();
+                String phone = tokens.nextToken();
+                String email = tokens.nextToken();
+                String city = tokens.nextToken();
+
+                Contact contact = new Contact(name, phone, email, city);
+
+                contacts.add(contact);
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+
+        return contacts;
     }
 }
