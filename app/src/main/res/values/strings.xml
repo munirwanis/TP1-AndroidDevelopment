@@ -15,4 +15,5 @@
     <string name="all_clean_toast">All clean!</string>
     <string name="ask_write_storage_permission">We need to save the contacts on your External Storage!</string>
     <string name="contact_is_empty">Please, fill all data to proceed.</string>
+    <string name="generic_error_response">An error occurred!</string>
 </resources>

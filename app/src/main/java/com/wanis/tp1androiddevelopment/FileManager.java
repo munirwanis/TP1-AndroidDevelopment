@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
 class FileManager {
     private static String fileName = "contacts.txt";
 
-    static void Store(String text) throws IOException {
+    static void store(String text) throws IOException {
 
         File file;
         byte[] data;
@@ -27,7 +27,7 @@ class FileManager {
 
             data = text.getBytes();
 
-            fos = new FileOutputStream(file);
+            fos = new FileOutputStream(file, true);
             fos.write(data);
             fos.flush();
             fos.close();
@@ -36,7 +36,7 @@ class FileManager {
         }
     }
 
-    static String Read() throws IOException {
+    static String read() throws IOException {
         File file;
         String stringFile = "";
         String stringFileLine;
@@ -61,7 +61,7 @@ class FileManager {
     static ArrayList<Contact> readContacts() throws IOException {
         ArrayList<Contact> contacts = new ArrayList<>();
         try {
-            String stringContacts = FileManager.Read();
+            String stringContacts = FileManager.read();
 
             String[] contactsLine = stringContacts.split("\n");
 

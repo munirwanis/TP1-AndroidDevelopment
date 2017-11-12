@@ -1,5 +1,9 @@
 package com.wanis.tp1androiddevelopment;
 
+import android.text.TextUtils;
+
+import org.w3c.dom.Text;
+
 /**
  * Created by munirwanis on 12/11/17.
  */
@@ -50,7 +54,7 @@ public class Contact {
     }
 
     public Boolean isEmpty() {
-        return this.name == null && this.phone == null && this.email == null && this.city == null;
+        return TextUtils.isEmpty(this.name) || TextUtils.isEmpty(this.phone) || TextUtils.isEmpty(this.email) || TextUtils.isEmpty(this.city);
     }
 
     @Override

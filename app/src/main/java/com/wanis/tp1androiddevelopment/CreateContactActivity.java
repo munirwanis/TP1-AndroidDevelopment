@@ -7,14 +7,13 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
-import static com.wanis.tp1androiddevelopment.FileManager.readContacts;
 
 public class CreateContactActivity extends AppCompatActivity {
 
@@ -113,7 +112,8 @@ public class CreateContactActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.contact_is_empty, Toast.LENGTH_LONG).show();
         } else {
             try {
-                FileManager.Store(contact.toString());
+                FileManager.store(contact.toString());
+                this.onShowContactsButtonClick(view);
             } catch (Exception e) {
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
@@ -141,7 +141,8 @@ public class CreateContactActivity extends AppCompatActivity {
             }
 
         } catch (Exception e) {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+            String errorMessage = TextUtils.isEmpty(e.getMessage()) ? this.getString(R.string.generic_error_response) : e.getMessage();
+            Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
         }
     }
 }
