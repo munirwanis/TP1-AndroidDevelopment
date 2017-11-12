@@ -12,4 +12,5 @@
     <string name="create_button">Create</string>
     <string name="clean_button">Clean</string>
     <string name="see_contacts_button">See Contacts</string>
+    <string name="all_clean_toast">All clean!</string>
 </resources>
