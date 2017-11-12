@@ -2,4 +2,20 @@
 <resources>
     <string name="app_name">Lista de Contatos</string>
     <string name="action_settings">Cofigurações</string>
+    <string name="all_clean_toast">Tudo limpo!</string>
+    <string name="generic_error_response">Ocorreu um erro!</string>
+    <string name="city_text_view">Cidade</string>
+    <string name="clean_button">Limpar</string>
+    <string name="create_button">Criar</string>
+    <string name="create_contact">Criar Contato</string>
+    <string name="email_text_view">Email</string>
+    <string name="name_text_view">Nome</string>
+    <string name="phone_text_view">Telefone</string>
+    <string name="contact_is_empty">Preencha todos os dados para prosseguir.</string>
+    <string name="see_contacts_button">Ver Contatos</string>
+    <string name="ask_write_storage_permission">Nós precisamos salvar os contatos em sua memória!</string>
+    <string name="city_edit_text">Sua Cidade</string>
+    <string name="email_edit_text">Seu Email</string>
+    <string name="name_edit_text">Seu Nome</string>
+    <string name="your_phone_edit_text">Seu Telefone</string>
 </resources>

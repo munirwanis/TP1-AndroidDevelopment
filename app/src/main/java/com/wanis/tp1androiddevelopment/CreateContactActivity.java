@@ -41,6 +41,8 @@ public class CreateContactActivity extends AppCompatActivity {
         this.cityEditText = (EditText) findViewById(R.id.cityEditText);
 
         this.progressBar = (ProgressBar) findViewById(R.id.createContactProgressBar);
+
+        this.checkForStoragePermission();
     }
 
     private void checkForStoragePermission() {
@@ -98,8 +100,6 @@ public class CreateContactActivity extends AppCompatActivity {
 
     public void onCreateButtonClick(View view) {
         this.progressBar.setVisibility(View.VISIBLE);
-
-        this.checkForStoragePermission();
 
         String name = this.nameEditText.getText().toString();
         String phone = this.phoneEditText.getText().toString();

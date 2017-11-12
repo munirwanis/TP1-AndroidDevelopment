@@ -20,9 +20,9 @@ public class ListContactsActivity extends AppCompatActivity {
     private void setup() {
         try {
             ArrayList contacts = FileManager.readContacts();
-            Contacts contactsAdapter = new Contacts(this, contacts);
+            ContactAdapter contactAdapter = new ContactAdapter(this, contacts);
             ListView listView = (ListView) findViewById(R.id.contactsListView);
-            listView.setAdapter(contactsAdapter);
+            listView.setAdapter(contactAdapter);
         } catch (Exception e) {
             Toast.makeText(this, R.string.contact_is_empty, Toast.LENGTH_LONG).show();
         }
